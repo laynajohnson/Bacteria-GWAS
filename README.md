@@ -5,3 +5,7 @@ This project discusses the background behind the methodologies of the paper "Ada
 We introduce the ideas of antimicrobial resistance and susceptibility of bacteria, and connect these ideas to the research done in this paper for the *Neisseria gonorrhoeae* bacteria. This website helps to break down complex ideas behind the methodologies for the common person to understand, even if you do not have much biology or genetics experience.
 
 This repository is created for the STAT 494: *Statistical Genetics* course at Macalester College.
+
+
+### Authors
+Nibia Becerra Santillan, Alayna Johnson, and Maria Sanchez Linares
