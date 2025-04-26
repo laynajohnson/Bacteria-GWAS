@@ -1,7 +1,7 @@
 ---
-title: Customize
+title: Antibiotic Resistance (and Susceptibility)
 ---
 
-## Edit and add your pages
+One of the most relevant items to understand is the idea of antibiotic resistance (and susceptibility) and why this is an important topic in public health. According to the CDC, antimicrobial resistance (AMR) is one of the most urgent problems humans are facing. AMR happens when the bacteria (or other organism) develop ways of resisting the antibiotics that previously worked to kill them, therefore ridding the host of the disease they caused (CDC). This is related to the term MIC we learned earlier. The more resistant a bacteria is, the higher the MIC needed to treat infection.
 
-No.
+	On the other hand, there is the term antibiotic susceptibility. This is the opposite of resistance. Instead of resisting the antibodies and being harder to treat, the bacteria instead react in the way a doctor would hope when they prescribe antibiotics. The bacteria is not able to fight back and they succumb to the antibodies because they are susceptible. In fact, there might even be some interactions between the bacteria and their environment which causes increased susceptibility. If this is the case, a lower MIC would be sufficient to kill off all the bacteria.
