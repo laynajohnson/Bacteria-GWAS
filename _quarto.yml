@@ -7,16 +7,13 @@ website:
   site-url: "https://laynajohnson.github.io/Bacteria-GWAS/" 
   repo-url: "https://github.com/laynajohnson/Bacteria-GWAS"
   repo-actions: [edit, source, issue]
-  favicon: images/favicon.ico
   
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
     left: "&copy; CC-1.0"
   
   sidebar:
-    background: "#D9E3E4"
-    logo: "https://raw.githubusercontent.com/nmfs-opensci/assets/main/logo/nmfs-opensci-logo3.png"
-    favicon: images/favicon.ico
+    background: "#94b5aa"
     pinned: true
     align: center
     
@@ -35,8 +32,6 @@ website:
         text: Conclusion
       - href: content/vocabulary.qmd
         text: Vocabulary
-      - href: content/rmarkdown.Rmd
-        text: R Markdown files
       - href: content/acknowledgements.qmd
         text: Bibliography
 
