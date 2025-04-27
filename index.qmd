@@ -10,3 +10,6 @@ There is much more to learn about the research done by the authors of this paper
 
 To explore the topics in the part of the paper we are focusing on, visit the different sections of our website. If there is a term you don’t quite understand, check out the vocabulary section.
 
+### Acknowledgements
+
+This repo and GitHub Action was based on the tutorial by Openscapes [quarto-website-tutorial](https://github.com/Openscapes/quarto-website-tutorial) by Julia Lowndes and Stefanie Butland.

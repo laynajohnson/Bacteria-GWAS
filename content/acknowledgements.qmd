@@ -1,5 +1,15 @@
 ---
-title: Acknowledgments
+title: Bibliography
 ---
 
-This repo and GitHub Action was based on the tutorial by Openscapes [quarto-website-tutorial](https://github.com/Openscapes/quarto-website-tutorial) by Julia Lowndes and Stefanie Butland.
+CDC. “About Antimicrobial Resistance.” Antimicrobial Resistance, December 11, 2024.
+https://www.cdc.gov/antimicrobial-resistance/about/index.html.
+Dadgostar, Porooshat. 2019. “Antimicrobial Resistance: Implications and Costs.” Infection and Drug
+Resistance 12 (December): 3903–10. doi:10.2147/IDR.S234610.
+Dillard, J. P. (2011). Genetic Manipulation of Neisseria gonorrhoeae. Current Protocols in
+Microbiology, 0 4, Unit4A.2. https://doi.org/10.1002/9780471729259.mc04a02s23
+Oliveira, J., & Reygaert, W. C. (2025). Gram-Negative Bacteria. In StatPearls. StatPearls
+Publishing. http://www.ncbi.nlm.nih.gov/books/NBK538213/
+Unemo, M., & Shafer, W. M. (2011). Antibiotic resistance in Neisseria gonorrhoeae: Origin, evolution,
+and lessons learned for the future. Annals of the New York Academy of Sciences, 1230, E19–E28.
+https://doi.org/10.1111/j.1749-6632.2011.06215.x

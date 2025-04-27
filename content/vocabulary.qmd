@@ -1,0 +1,19 @@
+---
+title: Vocabulary
+---
+
+ - **Antimicrobial Resistance (AMR)**: bacteria developing ways to resist antibodies that once worked to treat the disease.
+ 
+ - **Antimicrobial Susceptibility**: bacteria that does not resist antibodies, and therefore can be killed more easily.
+ 
+ - **Efflux Pump**: The mechanism in bacteria that is for pumping out antibodies. When bacteria is more resistant, there might be overexpression of efflux pump and when more susceptible there are LOF mutations.
+ 
+ - **Gram-Negative Bacteria (GNB)**: Bacteria that are naturally more resistant to antibodies. They are prone to certain mutations that create and enhance mechanisms of resistance.
+ 
+ - **Heritability**: The ability of some trait to be able to be passed down from generation to generation. Once it is present, it will pass down unless there is some mutation in that locus.
+ 
+ - **Minimum Inhibitory Concentration (MIC)**: the lowest necessary concentration of antibodies that can successfully kill bacteria therefore the disease it causes. If this value is lower, it means we need less of an antibody to kill the bacteria, or the bacteria is susceptible. This is the opposite for resistant bacteria.
+ 
+ - **Neisseria gonorrhoeae**: the bacteria responsible for the gonorrhea sexually transmitted infection (STI).
+ 
+ - **Transformation**: A process in which bacteria can spread resistant genes from one to the other through “shedding” the genetic material to the environment and another bacteria can pick it up.

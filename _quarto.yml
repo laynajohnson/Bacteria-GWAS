@@ -3,9 +3,9 @@ project:
 
 website: 
   page-navigation: true
-  title: "NOAA quarto simple" 
-  site-url: "https://nmfs-opensci.github.io/NOAA-quarto-simple" 
-  repo-url: "https://github.com/nmfs-opensci/NOAA-quarto-simple"
+  title: "Antimicrobial Susceptibility GWAS" 
+  site-url: "https://laynajohnson.github.io/Bacteria-GWAS/" 
+  repo-url: "https://github.com/laynajohnson/Bacteria-GWAS"
   repo-actions: [edit, source, issue]
   favicon: images/favicon.ico
   
