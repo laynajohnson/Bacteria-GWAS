@@ -14,21 +14,30 @@
     "href": "content/background.html",
     "title": "Background",
     "section": "",
-    "text": "One of the most relevant items to understand is the idea of antibiotic resistance (and susceptibility) and why this is an important topic in public health. According to the CDC, antimicrobial resistance (AMR) is one of the most urgent problems humans are facing. AMR happens when the bacteria (or other organism) develop ways of resisting the antibiotics that previously worked to kill them, therefore ridding the host of the disease they caused (CDC). This is related to the term MIC we learned earlier. The more resistant a bacteria is, the higher the MIC needed to treat infection.\nOn the other hand, there is the term antibiotic susceptibility. This is the opposite of resistance. Instead of resisting the antibodies and being harder to treat, the bacteria instead react in the way a doctor would hope when they prescribe antibiotics. The bacteria is not able to fight back and they succumb to the antibodies because they are susceptible. In fact, there might even be some interactions between the bacteria and their environment which causes increased susceptibility. If this is the case, a lower MIC would be sufficient to kill off all the bacteria."
+    "text": "One of the most relevant items to understand is the idea of antibiotic resistance (and susceptibility) and why this is an important topic in public health. According to the CDC, antimicrobial resistance (AMR) is one of the most urgent problems humans are facing. AMR happens when the bacteria (or other organism) develop ways of resisting the antibiotics that previously worked to kill them, therefore ridding the host of the disease they caused (CDC). This is related to the term MIC we learned earlier. The more resistant a bacteria is, the higher the MIC needed to treat infection.\nOn the other hand, there is the term antibiotic susceptibility. This is the opposite of resistance. Instead of resisting the antibodies and being harder to treat, the bacteria instead react in the way a doctor would hope when they prescribe antibiotics. The bacteria is not able to fight back and they succumb to the antibodies because they are susceptible. In fact, there might even be some interactions between the bacteria and their environment which causes increased susceptibility. If this is the case, a lower MIC would be sufficient to kill off all the bacteria.",
+    "crumbs": [
+      "Background"
+    ]
   },
   {
-    "objectID": "content/background.html#gram-negative-bacteria",
-    "href": "content/background.html#gram-negative-bacteria",
+    "objectID": "content/background.html#antibiotic-resistance-and-susceptibility",
+    "href": "content/background.html#antibiotic-resistance-and-susceptibility",
     "title": "Background",
-    "section": "Gram-Negative Bacteria",
-    "text": "Gram-Negative Bacteria\nNeisseria gonorrhoeae is a class of bacteria called Gram-Negative bacteria (GNB). This is like a fancy way of saying they are naturally antibiotic resistant. These kinds of bacteria are a large problem for public health, which includes the gonorrhea-causing bacteria we focus on here. GNB are characterized by the specialized mechanisms they have that prevent antimicrobials from doing their job. These include things like efflux pumps (which we will talk about later) and degradation enzymes (Oliveira, J., & Reygaert, W. C).\nThe mutations occurring in the Neisseria gonorrhoeae (and other) bacteria are considered heritable changes. If there is some “spontaneous mutation” or acquisition of genes from the environment, the bacteria can pass these mutations to the next generation. Neisseria gonorrhoeae bacteria is an ideal candidate for transformation, so once these resistance associated mutations are present, transformation helps to spread it to more bacteria (Unemo, M., & Shafer, W. M.) . This process of transformation is a form of horizontal gene transfer, which occurs when a bacteria takes in DNA from its environment. The bacteria that has genes encoding resistance can shed or expel this information into the environment which can then be picked up by another bacteria that previously did not exhibit the resistance."
+    "section": "",
+    "text": "One of the most relevant items to understand is the idea of antibiotic resistance (and susceptibility) and why this is an important topic in public health. According to the CDC, antimicrobial resistance (AMR) is one of the most urgent problems humans are facing. AMR happens when the bacteria (or other organism) develop ways of resisting the antibiotics that previously worked to kill them, therefore ridding the host of the disease they caused (CDC). This is related to the term MIC we learned earlier. The more resistant a bacteria is, the higher the MIC needed to treat infection.\nOn the other hand, there is the term antibiotic susceptibility. This is the opposite of resistance. Instead of resisting the antibodies and being harder to treat, the bacteria instead react in the way a doctor would hope when they prescribe antibiotics. The bacteria is not able to fight back and they succumb to the antibodies because they are susceptible. In fact, there might even be some interactions between the bacteria and their environment which causes increased susceptibility. If this is the case, a lower MIC would be sufficient to kill off all the bacteria.",
+    "crumbs": [
+      "Background"
+    ]
   },
   {
-    "objectID": "content/background.html#bacterial-relatedness",
-    "href": "content/background.html#bacterial-relatedness",
+    "objectID": "content/background.html#neisseria-gonorrhoeae",
+    "href": "content/background.html#neisseria-gonorrhoeae",
     "title": "Background",
-    "section": "Bacterial Relatedness",
-    "text": "Bacterial Relatedness"
+    "section": "Neisseria gonorrhoeae",
+    "text": "Neisseria gonorrhoeae\n\nGram-Negative Bacteria\nNeisseria gonorrhoeae is a class of bacteria called Gram-Negative bacteria (GNB). This is like a fancy way of saying they are naturally antibiotic resistant. These kinds of bacteria are a large problem for public health, which includes the gonorrhea-causing bacteria we focus on here. GNB are characterized by the specialized mechanisms they have that prevent antimicrobials from doing their job. These include things like efflux pumps (which we will talk about later) and degradation enzymes (Oliveira, J., & Reygaert, W. C).\nThe mutations occurring in the Neisseria gonorrhoeae (and other) bacteria are considered heritable changes. If there is some “spontaneous mutation” or acquisition of genes from the environment, the bacteria can pass these mutations to the next generation. Neisseria gonorrhoeae bacteria is an ideal candidate for transformation, so once these resistance associated mutations are present, transformation helps to spread it to more bacteria (Unemo, M., & Shafer, W. M.) . This process of transformation is a form of horizontal gene transfer, which occurs when a bacteria takes in DNA from its environment. The bacteria that has genes encoding resistance can shed or expel this information into the environment which can then be picked up by another bacteria that previously did not exhibit the resistance.\n\n\nBacterial Relatedness",
+    "crumbs": [
+      "Background"
+    ]
   },
   {
     "objectID": "content/code.html",
@@ -37,7 +46,7 @@
     "section": "",
     "text": "You can have code (R, Python or Julia) in your qmd file. You will need to have these installed on your local computer, but presumably you do already if you are adding code to your qmd files.\nx &lt;- c(5, 15, 25, 35, 45, 55)\ny &lt;- c(5, 20, 14, 32, 22, 38)\nlm(x ~ y)\n\n\nCall:\nlm(formula = x ~ y)\n\nCoefficients:\n(Intercept)            y  \n      1.056        1.326",
     "crumbs": [
-      "Code in your files"
+      "Replication"
     ]
   },
   {
@@ -47,7 +56,7 @@
     "section": "Modify the GitHub Action",
     "text": "Modify the GitHub Action\nYou will need to change the GitHub Action in .github/workflows to install these and any needed packages in order for GitHub to be able to render your webpage. The GitHub Action install R since I used that in code.qmd. If you use Python or Julia instead, then you will need to update the GitHub Action to install those.\nIf getting the GitHub Action to work is too much hassle (and that definitely happens), you can alway render locally and publish to the gh-pages branch. If you do this, make sure to delete or rename the GitHub Action to something like\nrender-and-publish.old_yml\nso GitHub does not keep trying to run it. Nothing bad will happen if you don’t do this, but if you are not using the action (because it keeps failing), then you don’t need GitHub to run it.",
     "crumbs": [
-      "Code in your files"
+      "Replication"
     ]
   },
   {
@@ -57,7 +66,7 @@
     "section": "Render locally and publish to gh-pages branch",
     "text": "Render locally and publish to gh-pages branch\nTo render locally and push up to the gh-pages branch, open a terminal window and then cd to the directory with the Quarto project. Type this in the terminal:\nquarto render gh-pages",
     "crumbs": [
-      "Code in your files"
+      "Replication"
     ]
   },
   {
@@ -95,7 +104,10 @@
     "href": "content/vocabulary.html",
     "title": "Vocabulary",
     "section": "",
-    "text": "Antimicrobial Resistance (AMR): bacteria developing ways to resist antibodies that once worked to treat the disease.\nAntimicrobial Susceptibility: bacteria that does not resist antibodies, and therefore can be killed more easily.\nEfflux Pump: The mechanism in bacteria that is for pumping out antibodies. When bacteria is more resistant, there might be overexpression of efflux pump and when more susceptible there are LOF mutations.\nGram-Negative Bacteria (GNB): Bacteria that are naturally more resistant to antibodies. They are prone to certain mutations that create and enhance mechanisms of resistance.\nHeritability: The ability of some trait to be able to be passed down from generation to generation. Once it is present, it will pass down unless there is some mutation in that locus.\nMinimum Inhibitory Concentration (MIC): the lowest necessary concentration of antibodies that can successfully kill bacteria therefore the disease it causes. If this value is lower, it means we need less of an antibody to kill the bacteria, or the bacteria is susceptible. This is the opposite for resistant bacteria.\nNeisseria gonorrhoeae: the bacteria responsible for the gonorrhea sexually transmitted infection (STI).\nTransformation: A process in which bacteria can spread resistant genes from one to the other through “shedding” the genetic material to the environment and another bacteria can pick it up."
+    "text": "Antimicrobial Resistance (AMR): bacteria developing ways to resist antibodies that once worked to treat the disease.\nAntimicrobial Susceptibility: bacteria that does not resist antibodies, and therefore can be killed more easily.\nEfflux Pump: The mechanism in bacteria that is for pumping out antibodies. When bacteria is more resistant, there might be overexpression of efflux pump and when more susceptible there are LOF mutations.\nGram-Negative Bacteria (GNB): Bacteria that are naturally more resistant to antibodies. They are prone to certain mutations that create and enhance mechanisms of resistance.\nHeritability: The ability of some trait to be able to be passed down from generation to generation. Once it is present, it will pass down unless there is some mutation in that locus.\nMinimum Inhibitory Concentration (MIC): the lowest necessary concentration of antibodies that can successfully kill bacteria therefore the disease it causes. If this value is lower, it means we need less of an antibody to kill the bacteria, or the bacteria is susceptible. This is the opposite for resistant bacteria.\nNeisseria gonorrhoeae: the bacteria responsible for the gonorrhea sexually transmitted infection (STI).\nTransformation: A process in which bacteria can spread resistant genes from one to the other through “shedding” the genetic material to the environment and another bacteria can pick it up.",
+    "crumbs": [
+      "Vocabulary"
+    ]
   },
   {
     "objectID": "content/publishing.html",
@@ -132,7 +144,7 @@
     "section": "",
     "text": "CDC. “About Antimicrobial Resistance.” Antimicrobial Resistance, December 11, 2024. https://www.cdc.gov/antimicrobial-resistance/about/index.html. Dadgostar, Porooshat. 2019. “Antimicrobial Resistance: Implications and Costs.” Infection and Drug Resistance 12 (December): 3903–10. doi:10.2147/IDR.S234610. Dillard, J. P. (2011). Genetic Manipulation of Neisseria gonorrhoeae. Current Protocols in Microbiology, 0 4, Unit4A.2. https://doi.org/10.1002/9780471729259.mc04a02s23 Oliveira, J., & Reygaert, W. C. (2025). Gram-Negative Bacteria. In StatPearls. StatPearls Publishing. http://www.ncbi.nlm.nih.gov/books/NBK538213/ Unemo, M., & Shafer, W. M. (2011). Antibiotic resistance in Neisseria gonorrhoeae: Origin, evolution, and lessons learned for the future. Annals of the New York Academy of Sciences, 1230, E19–E28. https://doi.org/10.1111/j.1749-6632.2011.06215.x",
     "crumbs": [
-      "Acknowledgements"
+      "Bibliography"
     ]
   },
   {
@@ -140,6 +152,9 @@
     "href": "content/conclusion.html",
     "title": "Conclusion",
     "section": "",
-    "text": "text"
+    "text": "text",
+    "crumbs": [
+      "Conclusion"
+    ]
   }
 ]
