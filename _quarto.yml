@@ -43,6 +43,9 @@ format:
     code-copy: true
     code-overflow: wrap
     toc: true
+    execute:
+      filters:
+        - include-files.lua
 
 
 filters:
