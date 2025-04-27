@@ -1,1 +1,1 @@
-Sitemap: https://nmfs-opensci.github.io/NOAA-quarto-simple/sitemap.xml
+Sitemap: https://laynajohnson.github.io/Bacteria-GWAS/sitemap.xml

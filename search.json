@@ -4,20 +4,31 @@
     "href": "index.html",
     "title": "GWAS to Identify Antimicrobial Susceptibility in Neisseria Gonorrhoeae",
     "section": "",
-    "text": "This project discusses the background behind the methodologies of the paper “Adaptation to the cervical environment is associated with increased antibiotic susceptibility in Neisseria gonorrhoeae” by Ma, K.C., Mortimer, T.D., Hicks, A.L. et al. We are focusing on methods of using GWAS (genome wide association studies) to identify antimicrobial susceptibility in the bacteria that causes the gonorrhea STI: Neisseria gonorrhoeae. Some topics we will cover include explaining population structure of the bacteria, what unitigs are, and how this research uses linear mixed models to predict MIC (minimum inhibitory concentration) of the antibiotic called azithromycin as it is used against the bacteria.\nThere is much more to learn about the research done by the authors of this paper, and we will only cover a small portion of it. For example, they focus on three different drugs that are commonly used to treat gonorrhea: azithromycin, ciprofloxacin, and ceftriaxone. Additionally, the researchers focus on environmental factors such as where the bacteria is located in the human host as factors impacting the evolutionary traits of Neisseria gonorrhoeae.\nTo explore the topics in the part of the paper we are focusing on, visit the different sections of our website. If there is a term you don’t quite understand, check out the vocabulary section.",
+    "text": "This project discusses the background behind the methodologies of the paper “Adaptation to the cervical environment is associated with increased antibiotic susceptibility in Neisseria gonorrhoeae” by Ma, K.C., Mortimer, T.D., Hicks, A.L. et al. We are focusing on methods of using GWAS (genome wide association studies) to identify antimicrobial susceptibility in the bacteria that causes the gonorrhea STI: Neisseria gonorrhoeae. Some topics we will cover include explaining population structure of the bacteria, what unitigs are, and how this research uses linear mixed models to predict MIC (minimum inhibitory concentration) of the antibiotic called azithromycin as it is used against the bacteria.\nThere is much more to learn about the research done by the authors of this paper, and we will only cover a small portion of it. For example, they focus on three different drugs that are commonly used to treat gonorrhea: azithromycin, ciprofloxacin, and ceftriaxone. Additionally, the researchers focus on environmental factors such as where the bacteria is located in the human host as factors impacting the evolutionary traits of Neisseria gonorrhoeae.\nTo explore the topics in the part of the paper we are focusing on, visit the different sections of our website. If there is a term you don’t quite understand, check out the vocabulary section.\n\nAcknowledgements\nThis repo and GitHub Action was based on the tutorial by Openscapes quarto-website-tutorial by Julia Lowndes and Stefanie Butland.",
     "crumbs": [
       "Home"
     ]
   },
   {
-    "objectID": "content/add-content.html",
-    "href": "content/add-content.html",
-    "title": "Antibiotic Resistance (and Susceptibility)",
+    "objectID": "content/background.html",
+    "href": "content/background.html",
+    "title": "Background",
     "section": "",
-    "text": "One of the most relevant items to understand is the idea of antibiotic resistance (and susceptibility) and why this is an important topic in public health. According to the CDC, antimicrobial resistance (AMR) is one of the most urgent problems humans are facing. AMR happens when the bacteria (or other organism) develop ways of resisting the antibiotics that previously worked to kill them, therefore ridding the host of the disease they caused (CDC). This is related to the term MIC we learned earlier. The more resistant a bacteria is, the higher the MIC needed to treat infection.\nOn the other hand, there is the term antibiotic susceptibility. This is the opposite of resistance. Instead of resisting the antibodies and being harder to treat, the bacteria instead react in the way a doctor would hope when they prescribe antibiotics. The bacteria is not able to fight back and they succumb to the antibodies because they are susceptible. In fact, there might even be some interactions between the bacteria and their environment which causes increased susceptibility. If this is the case, a lower MIC would be sufficient to kill off all the bacteria.",
-    "crumbs": [
-      "Add content"
-    ]
+    "text": "One of the most relevant items to understand is the idea of antibiotic resistance (and susceptibility) and why this is an important topic in public health. According to the CDC, antimicrobial resistance (AMR) is one of the most urgent problems humans are facing. AMR happens when the bacteria (or other organism) develop ways of resisting the antibiotics that previously worked to kill them, therefore ridding the host of the disease they caused (CDC). This is related to the term MIC we learned earlier. The more resistant a bacteria is, the higher the MIC needed to treat infection.\nOn the other hand, there is the term antibiotic susceptibility. This is the opposite of resistance. Instead of resisting the antibodies and being harder to treat, the bacteria instead react in the way a doctor would hope when they prescribe antibiotics. The bacteria is not able to fight back and they succumb to the antibodies because they are susceptible. In fact, there might even be some interactions between the bacteria and their environment which causes increased susceptibility. If this is the case, a lower MIC would be sufficient to kill off all the bacteria."
+  },
+  {
+    "objectID": "content/background.html#gram-negative-bacteria",
+    "href": "content/background.html#gram-negative-bacteria",
+    "title": "Background",
+    "section": "Gram-Negative Bacteria",
+    "text": "Gram-Negative Bacteria\nNeisseria gonorrhoeae is a class of bacteria called Gram-Negative bacteria (GNB). This is like a fancy way of saying they are naturally antibiotic resistant. These kinds of bacteria are a large problem for public health, which includes the gonorrhea-causing bacteria we focus on here. GNB are characterized by the specialized mechanisms they have that prevent antimicrobials from doing their job. These include things like efflux pumps (which we will talk about later) and degradation enzymes (Oliveira, J., & Reygaert, W. C).\nThe mutations occurring in the Neisseria gonorrhoeae (and other) bacteria are considered heritable changes. If there is some “spontaneous mutation” or acquisition of genes from the environment, the bacteria can pass these mutations to the next generation. Neisseria gonorrhoeae bacteria is an ideal candidate for transformation, so once these resistance associated mutations are present, transformation helps to spread it to more bacteria (Unemo, M., & Shafer, W. M.) . This process of transformation is a form of horizontal gene transfer, which occurs when a bacteria takes in DNA from its environment. The bacteria that has genes encoding resistance can shed or expel this information into the environment which can then be picked up by another bacteria that previously did not exhibit the resistance."
+  },
+  {
+    "objectID": "content/background.html#bacterial-relatedness",
+    "href": "content/background.html#bacterial-relatedness",
+    "title": "Background",
+    "section": "Bacterial Relatedness",
+    "text": "Bacterial Relatedness"
   },
   {
     "objectID": "content/code.html",
@@ -50,34 +61,6 @@
     ]
   },
   {
-    "objectID": "content/publishing.html",
-    "href": "content/publishing.html",
-    "title": "Publishing",
-    "section": "",
-    "text": "To get your Quarto webpage to show up with the url\nyou have a few steps."
-  },
-  {
-    "objectID": "content/publishing.html#turn-on-github-pages-for-your-repo",
-    "href": "content/publishing.html#turn-on-github-pages-for-your-repo",
-    "title": "Publishing",
-    "section": "Turn on GitHub Pages for your repo",
-    "text": "Turn on GitHub Pages for your repo\n\nTurn on GitHub Pages under Settings &gt; Pages . You will set pages to be made from the gh-pages branch and the root directory.\nTurn on GitHub Actions under Settings &gt; Actions &gt; General\n\nThe GitHub Action will automatically recreate your website when you push to GitHub after you do the initial gh-pages set-up"
-  },
-  {
-    "objectID": "content/publishing.html#do-your-first-publish-to-gh-pages",
-    "href": "content/publishing.html#do-your-first-publish-to-gh-pages",
-    "title": "Publishing",
-    "section": "Do your first publish to gh-pages",
-    "text": "Do your first publish to gh-pages\nThe first time you publish to gh-pages, you need to do so locally.\n\nOn your local computer, open a terminal window and cd to your repo directory. Here is what that cd command looks like for me. You command will look different because your local repo will be somewhere else on your computer.\n\ncd ~/Documents/GitHub/NOAA-quarto-simple\n\nPublish to the gh-pages. In the terminal type\n\nquarto publish gh-pages\nThis is going to render your webpage and then push the _site contents to the gh-pages branch."
-  },
-  {
-    "objectID": "content/publishing.html#dont-like-using-gh-pages",
-    "href": "content/publishing.html#dont-like-using-gh-pages",
-    "title": "Publishing",
-    "section": "Don’t like using gh-pages?",
-    "text": "Don’t like using gh-pages?\nIn some cases, you don’t want your website on the gh-pages branch. For example, if you are creating releases and you want the website pages archived in that release, then you won’t want your website pages on the gh-pages branch.\nHere are the changes you need to make if you to avoid gh-pages branch.\n\nAt the top of _quarto.yml add the following:\n\nproject: \n  type: website\n  output-dir: docs\n\nOn GitHub under Settings &gt; Pages set pages to be made from the main branch and the docs directory.\nMake sure docs is not listed in .gitignore\nPublish the site the first time locally using quarto publish from the terminal\nChange the GitHub Action because you can’t use quarto publish gh-pages. You’ll need to push to the main branch yourself (in the GitHub Action)\n\non:\n  push:\n    branches: main\n\nname: Render and Publish\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    env:\n      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}\n\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v2 \n        \n      - name: Set up R (needed for Rmd)\n        uses: r-lib/actions/setup-r@v2\n\n      - name: Install packages (needed for Rmd)\n        run: Rscript -e 'install.packages(c(\"rmarkdown\", \"knitr\", \"jsonlite\"))'\n\n      - name: Set up Quarto\n        uses: quarto-dev/quarto-actions/setup@v2\n        with:\n          # To install LaTeX to build PDF book \n          # tinytex: true \n          # uncomment below and fill to pin a version\n          # version: 0.9.600\n      \n      - name: Render Quarto Project\n        uses: quarto-dev/quarto-actions/render@v2\n        with:\n          to: html\n\n      - name: Set up Git\n        run: |\n          git config --local user.email \"actions@github.com\"\n          git config --local user.name \"GitHub Actions\"\n\n      - name: Commit all changes and push\n        run: |\n          git add -A && git commit -m 'Build site' || echo \"No changes to commit\"\n          git push origin || echo \"No changes to commit\""
-  },
-  {
     "objectID": "content/rmarkdown.html",
     "href": "content/rmarkdown.html",
     "title": "R Markdown",
@@ -108,83 +91,55 @@
     ]
   },
   {
-    "objectID": "content/customizing.html",
-    "href": "content/customizing.html",
-    "title": "Customization",
+    "objectID": "content/vocabulary.html",
+    "href": "content/vocabulary.html",
+    "title": "Vocabulary",
     "section": "",
-    "text": "Quarto allow many bells and whistles to make nice output. Read the documentation here Quarto documentation.",
-    "crumbs": [
-      "Customizing"
-    ]
+    "text": "Antimicrobial Resistance (AMR): bacteria developing ways to resist antibodies that once worked to treat the disease.\nAntimicrobial Susceptibility: bacteria that does not resist antibodies, and therefore can be killed more easily.\nEfflux Pump: The mechanism in bacteria that is for pumping out antibodies. When bacteria is more resistant, there might be overexpression of efflux pump and when more susceptible there are LOF mutations.\nGram-Negative Bacteria (GNB): Bacteria that are naturally more resistant to antibodies. They are prone to certain mutations that create and enhance mechanisms of resistance.\nHeritability: The ability of some trait to be able to be passed down from generation to generation. Once it is present, it will pass down unless there is some mutation in that locus.\nMinimum Inhibitory Concentration (MIC): the lowest necessary concentration of antibodies that can successfully kill bacteria therefore the disease it causes. If this value is lower, it means we need less of an antibody to kill the bacteria, or the bacteria is susceptible. This is the opposite for resistant bacteria.\nNeisseria gonorrhoeae: the bacteria responsible for the gonorrhea sexually transmitted infection (STI).\nTransformation: A process in which bacteria can spread resistant genes from one to the other through “shedding” the genetic material to the environment and another bacteria can pick it up."
   },
   {
-    "objectID": "content/customizing.html#quarto-documentation",
-    "href": "content/customizing.html#quarto-documentation",
-    "title": "Customization",
+    "objectID": "content/publishing.html",
+    "href": "content/publishing.html",
+    "title": "Publishing",
     "section": "",
-    "text": "Quarto allow many bells and whistles to make nice output. Read the documentation here Quarto documentation.",
-    "crumbs": [
-      "Customizing"
-    ]
+    "text": "To get your Quarto webpage to show up with the url\nyou have a few steps."
   },
   {
-    "objectID": "content/customizing.html#examples",
-    "href": "content/customizing.html#examples",
-    "title": "Customization",
-    "section": "Examples",
-    "text": "Examples\nLooking at other people’s Quarto code is a great way to figure out how to do stuff. Most will have a link to a GitHub repo where you can see the raw code. Look for a link to edit page or see source code. This will usually be on the right. Or look for the GitHub icon somewhere.\n\nQuarto gallery\nnmfs-openscapes\nFay lab manual\nquarto-titlepages Note the link to edit is broken. Go to repo and look in documentation directory.",
-    "crumbs": [
-      "Customizing"
-    ]
+    "objectID": "content/publishing.html#turn-on-github-pages-for-your-repo",
+    "href": "content/publishing.html#turn-on-github-pages-for-your-repo",
+    "title": "Publishing",
+    "section": "Turn on GitHub Pages for your repo",
+    "text": "Turn on GitHub Pages for your repo\n\nTurn on GitHub Pages under Settings &gt; Pages . You will set pages to be made from the gh-pages branch and the root directory.\nTurn on GitHub Actions under Settings &gt; Actions &gt; General\n\nThe GitHub Action will automatically recreate your website when you push to GitHub after you do the initial gh-pages set-up"
+  },
+  {
+    "objectID": "content/publishing.html#do-your-first-publish-to-gh-pages",
+    "href": "content/publishing.html#do-your-first-publish-to-gh-pages",
+    "title": "Publishing",
+    "section": "Do your first publish to gh-pages",
+    "text": "Do your first publish to gh-pages\nThe first time you publish to gh-pages, you need to do so locally.\n\nOn your local computer, open a terminal window and cd to your repo directory. Here is what that cd command looks like for me. You command will look different because your local repo will be somewhere else on your computer.\n\ncd ~/Documents/GitHub/NOAA-quarto-simple\n\nPublish to the gh-pages. In the terminal type\n\nquarto publish gh-pages\nThis is going to render your webpage and then push the _site contents to the gh-pages branch."
+  },
+  {
+    "objectID": "content/publishing.html#dont-like-using-gh-pages",
+    "href": "content/publishing.html#dont-like-using-gh-pages",
+    "title": "Publishing",
+    "section": "Don’t like using gh-pages?",
+    "text": "Don’t like using gh-pages?\nIn some cases, you don’t want your website on the gh-pages branch. For example, if you are creating releases and you want the website pages archived in that release, then you won’t want your website pages on the gh-pages branch.\nHere are the changes you need to make if you to avoid gh-pages branch.\n\nAt the top of _quarto.yml add the following:\n\nproject: \n  type: website\n  output-dir: docs\n\nOn GitHub under Settings &gt; Pages set pages to be made from the main branch and the docs directory.\nMake sure docs is not listed in .gitignore\nPublish the site the first time locally using quarto publish from the terminal\nChange the GitHub Action because you can’t use quarto publish gh-pages. You’ll need to push to the main branch yourself (in the GitHub Action)\n\non:\n  push:\n    branches: main\n\nname: Render and Publish\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    env:\n      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}\n\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v2 \n        \n      - name: Set up R (needed for Rmd)\n        uses: r-lib/actions/setup-r@v2\n\n      - name: Install packages (needed for Rmd)\n        run: Rscript -e 'install.packages(c(\"rmarkdown\", \"knitr\", \"jsonlite\"))'\n\n      - name: Set up Quarto\n        uses: quarto-dev/quarto-actions/setup@v2\n        with:\n          # To install LaTeX to build PDF book \n          # tinytex: true \n          # uncomment below and fill to pin a version\n          # version: 0.9.600\n      \n      - name: Render Quarto Project\n        uses: quarto-dev/quarto-actions/render@v2\n        with:\n          to: html\n\n      - name: Set up Git\n        run: |\n          git config --local user.email \"actions@github.com\"\n          git config --local user.name \"GitHub Actions\"\n\n      - name: Commit all changes and push\n        run: |\n          git add -A && git commit -m 'Build site' || echo \"No changes to commit\"\n          git push origin || echo \"No changes to commit\""
   },
   {
     "objectID": "content/acknowledgements.html",
     "href": "content/acknowledgements.html",
-    "title": "Acknowledgments",
+    "title": "Bibliography",
     "section": "",
-    "text": "This repo and GitHub Action was based on the tutorial by Openscapes quarto-website-tutorial by Julia Lowndes and Stefanie Butland.",
+    "text": "CDC. “About Antimicrobial Resistance.” Antimicrobial Resistance, December 11, 2024. https://www.cdc.gov/antimicrobial-resistance/about/index.html. Dadgostar, Porooshat. 2019. “Antimicrobial Resistance: Implications and Costs.” Infection and Drug Resistance 12 (December): 3903–10. doi:10.2147/IDR.S234610. Dillard, J. P. (2011). Genetic Manipulation of Neisseria gonorrhoeae. Current Protocols in Microbiology, 0 4, Unit4A.2. https://doi.org/10.1002/9780471729259.mc04a02s23 Oliveira, J., & Reygaert, W. C. (2025). Gram-Negative Bacteria. In StatPearls. StatPearls Publishing. http://www.ncbi.nlm.nih.gov/books/NBK538213/ Unemo, M., & Shafer, W. M. (2011). Antibiotic resistance in Neisseria gonorrhoeae: Origin, evolution, and lessons learned for the future. Annals of the New York Academy of Sciences, 1230, E19–E28. https://doi.org/10.1111/j.1749-6632.2011.06215.x",
     "crumbs": [
       "Acknowledgements"
     ]
   },
   {
-    "objectID": "content/rendering.html",
-    "href": "content/rendering.html",
-    "title": "Rendering",
+    "objectID": "content/conclusion.html",
+    "href": "content/conclusion.html",
+    "title": "Conclusion",
     "section": "",
-    "text": "The repo includes a GitHub Action that will render (build) the website automatically when you make changes to the files. It will be pushed to the gh-pages branch.\nBut when you are developing your content, you will want to render it locally.",
-    "crumbs": [
-      "Rendering"
-    ]
-  },
-  {
-    "objectID": "content/rendering.html#step-1.-make-sure-you-have-a-recent-rstudio",
-    "href": "content/rendering.html#step-1.-make-sure-you-have-a-recent-rstudio",
-    "title": "Rendering",
-    "section": "Step 1. Make sure you have a recent RStudio",
-    "text": "Step 1. Make sure you have a recent RStudio\nHave you updated RStudio since about August 2022? No? Then update to a newer version of RStudio. In general, you want to keep RStudio updated and it is required to have a recent version to use Quarto.",
-    "crumbs": [
-      "Rendering"
-    ]
-  },
-  {
-    "objectID": "content/rendering.html#step-2.-clone-and-create-rstudio-project",
-    "href": "content/rendering.html#step-2.-clone-and-create-rstudio-project",
-    "title": "Rendering",
-    "section": "Step 2. Clone and create RStudio project",
-    "text": "Step 2. Clone and create RStudio project\nFirst, clone the repo onto your local computer. How? You can click File &gt; New Project and then select “Version Control”. Paste in the url of the repository. That will clone the repo on to your local computer. When you make changes, you will need to push those up.",
-    "crumbs": [
-      "Rendering"
-    ]
-  },
-  {
-    "objectID": "content/rendering.html#step-3.-render-within-rstudio",
-    "href": "content/rendering.html#step-3.-render-within-rstudio",
-    "title": "Rendering",
-    "section": "Step 3. Render within RStudio",
-    "text": "Step 3. Render within RStudio\nRStudio will recognize that this is a Quarto project by the presence of the _quarto.yml file and will see the “Build” tab. Click the “Render website” button to render to the _site folder.\nPreviewing: You can either click index.html in the _site folder and specify “preview in browser” or set up RStudio to preview to the viewer panel. To do the latter, go to Tools &gt; Global Options &gt; R Markdown. Then select “Show output preview in: Viewer panel”.",
-    "crumbs": [
-      "Rendering"
-    ]
+    "text": "text"
   }
 ]
