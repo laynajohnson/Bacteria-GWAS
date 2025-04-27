@@ -4,7 +4,17 @@
     "href": "index.html",
     "title": "GWAS to Identify Antimicrobial Susceptibility in Neisseria Gonorrhoeae",
     "section": "",
-    "text": "This project discusses the background behind the methodologies of the paper “Adaptation to the cervical environment is associated with increased antibiotic susceptibility in Neisseria gonorrhoeae” by Ma, K.C., Mortimer, T.D., Hicks, A.L. et al. We are focusing on methods of using GWAS (genome wide association studies) to identify antimicrobial susceptibility in the bacteria that causes the gonorrhea STI: Neisseria gonorrhoeae. Some topics we will cover include explaining population structure of the bacteria, what unitigs are, and how this research uses linear mixed models to predict MIC (minimum inhibitory concentration) of the antibiotic called azithromycin as it is used against the bacteria.\nThere is much more to learn about the research done by the authors of this paper, and we will only cover a small portion of it. For example, they focus on three different drugs that are commonly used to treat gonorrhea: azithromycin, ciprofloxacin, and ceftriaxone. Additionally, the researchers focus on environmental factors such as where the bacteria is located in the human host as factors impacting the evolutionary traits of Neisseria gonorrhoeae.\nTo explore the topics in the part of the paper we are focusing on, visit the different sections of our website. If there is a term you don’t quite understand, check out the vocabulary section.\n\nAcknowledgements\nThis repo and GitHub Action was based on the tutorial by Openscapes quarto-website-tutorial by Julia Lowndes and Stefanie Butland.",
+    "text": "This project discusses the background behind the methodologies of the paper “Adaptation to the cervical environment is associated with increased antibiotic susceptibility in Neisseria gonorrhoeae” by Ma, K.C., Mortimer, T.D., Hicks, A.L. et al. We are focusing on methods of using GWAS (genome wide association studies) to identify antimicrobial susceptibility in the bacteria that causes the gonorrhea STI: Neisseria gonorrhoeae. Some topics we will cover include explaining population structure of the bacteria, what unitigs are, and how this research uses linear mixed models to predict MIC (minimum inhibitory concentration) of the antibiotic called azithromycin as it is used against the bacteria.\nThere is much more to learn about the research done by the authors of this paper, and we will only cover a small portion of it. For example, they focus on three different drugs that are commonly used to treat gonorrhea: azithromycin, ciprofloxacin, and ceftriaxone. Additionally, the researchers focus on environmental factors such as where the bacteria is located in the human host as factors impacting the evolutionary traits of Neisseria gonorrhoeae.\nTo explore the topics in the part of the paper we are focusing on, visit the different sections of our website. If there is a term you don’t quite understand, check out the vocabulary section.\n\n\nThis repo and GitHub Action was based on the tutorial by Openscapes quarto-website-tutorial by Julia Lowndes and Stefanie Butland.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "GWAS to Identify Antimicrobial Susceptibility in Neisseria Gonorrhoeae",
+    "section": "",
+    "text": "This project discusses the background behind the methodologies of the paper “Adaptation to the cervical environment is associated with increased antibiotic susceptibility in Neisseria gonorrhoeae” by Ma, K.C., Mortimer, T.D., Hicks, A.L. et al. We are focusing on methods of using GWAS (genome wide association studies) to identify antimicrobial susceptibility in the bacteria that causes the gonorrhea STI: Neisseria gonorrhoeae. Some topics we will cover include explaining population structure of the bacteria, what unitigs are, and how this research uses linear mixed models to predict MIC (minimum inhibitory concentration) of the antibiotic called azithromycin as it is used against the bacteria.\nThere is much more to learn about the research done by the authors of this paper, and we will only cover a small portion of it. For example, they focus on three different drugs that are commonly used to treat gonorrhea: azithromycin, ciprofloxacin, and ceftriaxone. Additionally, the researchers focus on environmental factors such as where the bacteria is located in the human host as factors impacting the evolutionary traits of Neisseria gonorrhoeae.\nTo explore the topics in the part of the paper we are focusing on, visit the different sections of our website. If there is a term you don’t quite understand, check out the vocabulary section.\n\n\nThis repo and GitHub Action was based on the tutorial by Openscapes quarto-website-tutorial by Julia Lowndes and Stefanie Butland.",
     "crumbs": [
       "Home"
     ]
@@ -67,36 +77,6 @@
     "text": "Render locally and publish to gh-pages branch\nTo render locally and push up to the gh-pages branch, open a terminal window and then cd to the directory with the Quarto project. Type this in the terminal:\nquarto render gh-pages",
     "crumbs": [
       "Replication"
-    ]
-  },
-  {
-    "objectID": "content/rmarkdown.html",
-    "href": "content/rmarkdown.html",
-    "title": "R Markdown",
-    "section": "",
-    "text": "You can include R Markdown files in your project.",
-    "crumbs": [
-      "R Markdown files"
-    ]
-  },
-  {
-    "objectID": "content/rmarkdown.html#r-markdown",
-    "href": "content/rmarkdown.html#r-markdown",
-    "title": "R Markdown",
-    "section": "R Markdown",
-    "text": "R Markdown\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00",
-    "crumbs": [
-      "R Markdown files"
-    ]
-  },
-  {
-    "objectID": "content/rmarkdown.html#including-plots",
-    "href": "content/rmarkdown.html#including-plots",
-    "title": "R Markdown",
-    "section": "Including Plots",
-    "text": "Including Plots\nYou can also embed plots, for example:\n\n\n\n\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.",
-    "crumbs": [
-      "R Markdown files"
     ]
   },
   {
