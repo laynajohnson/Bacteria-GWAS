@@ -2,19 +2,19 @@
 title: Background
 ---
 
-# Antibiotic Resistance and Susceptibility
+## Antibiotic Resistance and Susceptibility
 
 One of the most relevant items to understand is the idea of antibiotic resistance (and susceptibility) and why this is an important topic in public health. According to the CDC, antimicrobial resistance (AMR) is one of the most urgent problems humans are facing. AMR happens when the bacteria (or other organism) develop ways of resisting the antibiotics that previously worked to kill them, therefore ridding the host of the disease they caused (CDC). This is related to the term MIC we learned earlier. The more resistant a bacteria is, the higher the MIC needed to treat infection.
 
 On the other hand, there is the term antibiotic susceptibility. This is the opposite of resistance. Instead of resisting the antibodies and being harder to treat, the bacteria instead react in the way a doctor would hope when they prescribe antibiotics. The bacteria is not able to fight back and they succumb to the antibodies because they are susceptible. In fact, there might even be some interactions between the bacteria and their environment which causes increased susceptibility. If this is the case, a lower MIC would be sufficient to kill off all the bacteria.
 
-# *Neisseria gonorrhoeae*
+## *Neisseria gonorrhoeae*
 
-## Gram-Negative Bacteria
+### Gram-Negative Bacteria
 
 *Neisseria gonorrhoeae* is a class of bacteria called Gram-Negative bacteria (GNB). This is like a fancy way of saying they are naturally antibiotic resistant. These kinds of bacteria are a large problem for public health, which includes the gonorrhea-causing bacteria we focus on here. GNB are characterized by the specialized mechanisms they have that prevent antimicrobials from doing their job. These include things like efflux pumps (which we will talk about later) and degradation enzymes (Oliveira, J., & Reygaert, W. C). 
 
 The mutations occurring in the  *Neisseria gonorrhoeae* (and other) bacteria are considered heritable changes. If there is some “spontaneous mutation” or acquisition of genes from the environment, the bacteria can pass these mutations to the next generation. *Neisseria gonorrhoeae* bacteria is an ideal candidate for transformation, so once these resistance associated mutations are present, transformation helps to spread it to more bacteria (Unemo, M., & Shafer, W. M.) . This process of transformation is a form of horizontal gene transfer, which occurs when a bacteria takes in DNA from its environment. The bacteria that has genes encoding resistance can shed or expel this information into the environment which can then be picked up by another bacteria that previously did not exhibit the resistance. 
 
-## Bacterial Relatedness
+### Bacterial Relatedness
 

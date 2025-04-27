@@ -19,13 +19,7 @@ website:
     favicon: images/favicon.ico
     pinned: true
     align: center
-    tools: 
-      - icon: globe
-        href: https://nmfs-opensci.github.io
-        text: "NMFS Open Science"
-      - icon: github
-        href: https://github.com/nmfs-opensci
-        text: "NMFS OpenSci"
+    
 
     style: "docked"
     search: true
@@ -33,18 +27,18 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - href: content/add-content.qmd
-        text: Add content
-      - href: content/customizing.qmd
-        text: Customizing
-      - href: content/rendering.qmd
-        text: Rendering
+      - href: content/background.qmd
+        text: Background
+      - href: content/code.qmd
+        text: Replication
+      - href: content/conclusion.qmd
+        text: Conclusion
+      - href: content/vocabulary.qmd
+        text: Vocabulary
       - href: content/rmarkdown.Rmd
         text: R Markdown files
-      - href: content/code.qmd
-        text: Code in your files
       - href: content/acknowledgements.qmd
-        text: Acknowledgements
+        text: Bibliography
 
 format:
   html:
