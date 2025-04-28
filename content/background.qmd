@@ -18,3 +18,7 @@ The mutations occurring in the  *Neisseria gonorrhoeae* (and other) bacteria are
 
 ### Bacterial Relatedness
 
+When Neisseria gonorrhoeae goes through genetic changes either through spontaneous mutation or through absorbing environmental DNA, we can identify which bacteria are related to each other. We can view the population structure of the bacteria through phylogenetic trees.
+
+How can we use statistical genetics methods (GWAS) to identify instances of susceptibility to azithromycin in the N. gonorrhoeae bacteria?
+
