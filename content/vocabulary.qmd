@@ -16,4 +16,4 @@ title: Vocabulary
  
  - **Neisseria gonorrhoeae**: the bacteria responsible for the gonorrhea sexually transmitted infection (STI).
  
- - **Transformation**: A process in which bacteria can spread resistant genes from one to the other through “shedding” the genetic material to the environment and another bacteria can pick it up.
+ - **Transformation**: A process in which bacteria can spread resistant genes from one to the other through secreting genetic material to the environment for another bacteria to pick it up.
