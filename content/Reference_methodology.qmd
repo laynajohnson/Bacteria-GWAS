@@ -6,7 +6,7 @@ editor: visual
 
 # Reference Methodology
 
-The paper **Neisseria gonorrhoeae and how Genome-Wide Association Study (GWAS)** had the objective to understand the phenomenon of some Neisseria gonorrhoeae clinical isolates reverting to antibiotic susceptibility despite the general trend of increasing resistance.
+The paper **Adaptation to the cervical environment is associated with increased antibiotic susceptibility in Neisseria gonorrhoeae** had the objective to understand the phenomenon of some Neisseria gonorrhoeae clinical isolates reverting to antibiotic susceptibility despite the general trend of increasing resistance.
 
 This objective was broken down into1. A way to assess susceptibility/resistance to different antibiotics (Azithromycin, Ceftriaxone, and Ciprofloxacin) and 2. Trying to identify how well are known genetic markers are predicting that susceptibility/resistance in Neisseria gonorrhoeae.
 
@@ -18,7 +18,7 @@ The study utilized Minimum Inhibitory Concentrations (MICs) as the measure of an
 
 For example, in the image below we can think of the darker green dots as Neisseria gonorrhoeae bacteria, and the numbers by the test tubes from 0 to 16 could represent the concentration of Azithromycin since we are focusing on that antibiotic for our project. Susceptible organisms' communities would decrease in size or disappear as the concentration of antibiotics is higher, whereas the resistant organisms communities are unaffected by the medicine. The more resistant the organism, the higher the MIC and the opposite is true for susceptible organisms.
 
-![MIC example. *Modified by Alayna Jonhson](MIC.png)
+![MIC example. *Modified by Alayna Jonhson](figures/MIC.png)
 
 They assembled a global dataset that included the genomes and associated MICs for 4852 isolates. MICs were log-transformed for use as continuous outcome variables in their analysis.
 
@@ -36,7 +36,7 @@ These were specific markers in the bacteria's DNA that scientists had already ex
 
 Since we are focusing on Azithromycin, this is what their model looked like:
 
-![Linear model before GWAS](LINEAR_bef_GWAS.png)
+![Linear model before GWAS](figures/LINEAR_bef_GWAS.png)
 
 From this model they found that - The predictive modeling of MICs based on known resistance markers explained a relatively low amount of the variance (about 1 in 10 strains had MIC predictions that were way off) (adjusted R² = 0.667) - There was unexplained susceptibility, meaning unknown modifiers that promote susceptibility.
 
@@ -70,7 +70,7 @@ The analysis identified many highly significant unitigs corresponding to known r
 
 This susceptibility-linked variant mapped to the **mtrC gene**. The mtrC loss-of-function (LOF) mutations were associated with increased susceptibility as they lead to worsen response to antibiotics from the N. gonorrhoeae bacteria.
 
-![mtrC variant resulted on mtrC LOF (Loss of function). *Modified by Alayna Jonhson](Efflux_pump_LOF.png)
+![mtrC variant resulted on mtrC LOF (Loss of function). *Modified by Alayna Jonhson](figures/Efflux_pump_LOF.png)
 
 ## Post-GWAS Linear Model
 
@@ -82,7 +82,7 @@ They found a statistically significant association.
 
 To quantify the improvement of the model, they updated their original linear models by adding the presence of the mtrC LOF mutation as an additional predictor variable.
 
-![Linear model after GWAS](LINEAR_af_GWAS.png)
+![Linear model after GWAS](figures/LINEAR_af_GWAS.png)
 
 Including the mtrC LOF mutations made the models better at explaining variation in MICs for azithromycin. This was shown by an increase in the adjusted R² from 0.667 to 0.704, meaning the models could account for a larger proportion of the differences in MICs across strains.
 

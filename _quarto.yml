@@ -26,6 +26,8 @@ website:
         text: Home
       - href: content/background.qmd
         text: Background
+      - href: content/Reference_methodology.qmd
+        text: Reference Methodology
       - href: content/code.qmd
         text: Replication
       - href: content/conclusion.qmd
