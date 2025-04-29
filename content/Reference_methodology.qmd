@@ -24,7 +24,7 @@ They assembled a global dataset that included the genomes and associated MICs fo
 
 They binarized MICs using clinical breakpoints for visualization based on Neisseria gonorrhoeae phylogeny.
 
-![Phylogeny tree with binarized MIC to show suceptibility or resistance to Azithromycin](phylogeny_tree.png)
+![Phylogeny tree with binarized MIC to show suceptibility or resistance to Azithromycin](figures/phylogeny_tree.png)
 
 ### 2. *Trying to identify how well are known genetic markers are predicting that susceptibility/resistance in Neisseria gonorrhoeae*
 
