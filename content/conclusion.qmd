@@ -2,4 +2,5 @@
 title: Conclusion
 ---
 
-text
+### Contributions
+A.J. researched and interpreted background information from the original paper. N.B.S interpreted Linear Models for GWAS and explained the motivations and purpose of the methodology. M.S.L translated code from Python to replicate GWAS study for azithromycin on *N. gonorrohoeae*.
