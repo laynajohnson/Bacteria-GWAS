@@ -1,10 +1,9 @@
 ---
-title: "methodologies"
+title: "Reference Methodology"
 author: "Nibia"
 editor: visual
 ---
 
-# Reference Methodology
 
 The paper **Adaptation to the cervical environment is associated with increased antibiotic susceptibility in *Neisseria gonorrhoeae*** had the objective to understand the phenomenon of some *Neisseria gonorrhoeae* clinical isolates reverting to antibiotic susceptibility despite the general trend of increasing resistance.
 
