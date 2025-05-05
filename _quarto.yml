@@ -1,6 +1,11 @@
-project: 
+project:
   type: website
 
+jupyter: python3
+engine-options:
+  python:
+    executable: /Users/nibiabecerrasantillan/.virtualenvs/r-reticulate/bin/python
+    
 website: 
   page-navigation: true
   title: "Antimicrobial Susceptibility GWAS" 
