@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Maria Celeste Sanchez Linares">
 
-<title>Rendering with Code – Antimicrobial Susceptibility GWAS</title>
+<title>Replication – Antimicrobial Susceptibility GWAS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,9 +73,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-748b535e376f14d4692bf2b2e5fd6380.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-c8906ea488659bbf67758b02f363225c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -265,6 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
@@ -361,8 +363,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#modify-the-github-action" id="toc-modify-the-github-action" class="nav-link active" data-scroll-target="#modify-the-github-action">Modify the GitHub Action</a></li>
-  <li><a href="#render-locally-and-publish-to-gh-pages-branch" id="toc-render-locally-and-publish-to-gh-pages-branch" class="nav-link" data-scroll-target="#render-locally-and-publish-to-gh-pages-branch">Render locally and publish to gh-pages branch</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link active" data-scroll-target="#data-sources">Data Sources</a></li>
+  <li><a href="#step-1-preprocessing-metadata-and-covariates" id="toc-step-1-preprocessing-metadata-and-covariates" class="nav-link" data-scroll-target="#step-1-preprocessing-metadata-and-covariates">Step 1: Preprocessing Metadata and Covariates</a></li>
+  <li><a href="#step-2-running-pyseer-gwas" id="toc-step-2-running-pyseer-gwas" class="nav-link" data-scroll-target="#step-2-running-pyseer-gwas">Step 2: Running Pyseer GWAS</a></li>
+  <li><a href="#step-4-unitigs-annotation" id="toc-step-4-unitigs-annotation" class="nav-link" data-scroll-target="#step-4-unitigs-annotation">Step 4: Unitigs Annotation</a></li>
+  <li><a href="#step-5-plotting-manhattan-plot" id="toc-step-5-plotting-manhattan-plot" class="nav-link" data-scroll-target="#step-5-plotting-manhattan-plot">Step 5: Plotting Manhattan Plot</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/laynajohnson/Bacteria-GWAS/edit/main/content/code.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/laynajohnson/Bacteria-GWAS/blob/main/content/code.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/laynajohnson/Bacteria-GWAS/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -372,13 +377,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Rendering with Code</h1>
+<h1 class="title">Replication</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Maria Celeste Sanchez Linares </p>
+          </div>
+  </div>
     
   
     
@@ -389,32 +400,128 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>You can have code (R, Python or Julia) in your qmd file. You will need to have these installed on your local computer, but presumably you do already if you are adding code to your qmd files.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">25</span>, <span class="dv">35</span>, <span class="dv">45</span>, <span class="dv">55</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">14</span>, <span class="dv">32</span>, <span class="dv">22</span>, <span class="dv">38</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(x <span class="sc">~</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = x ~ y)
-
-Coefficients:
-(Intercept)            y  
-      1.056        1.326  </code></pre>
-</div>
-</div>
-<section id="modify-the-github-action" class="level2">
-<h2 class="anchored" data-anchor-id="modify-the-github-action">Modify the GitHub Action</h2>
-<p>You will need to change the GitHub Action in <code>.github/workflows</code> to install these and any needed packages in order for GitHub to be able to render your webpage. The GitHub Action install R since I used that in <code>code.qmd</code>. If you use Python or Julia instead, then you will need to update the GitHub Action to install those.</p>
-<p>If getting the GitHub Action to work is too much hassle (and that definitely happens), you can alway render locally and publish to the <code>gh-pages</code> branch. If you do this, make sure to delete or rename the GitHub Action to something like</p>
-<pre><code>render-and-publish.old_yml</code></pre>
-<p>so GitHub does not keep trying to run it. Nothing bad will happen if you don’t do this, but if you are not using the action (because it keeps failing), then you don’t need GitHub to run it.</p>
+<p>This analysis replicates a portion of the genomic association approach used in the paper “Adaptation to the cervical environment is associated with increased antibiotic susceptibility in Neisseria gonorrhoeae”. While the original study examines susceptibility to azithromycin, ceftriaxone, and ciprofloxacin, we apply the same GWAS methodology to focus only on susceptibility to azithromycin.</p>
+<p>This analysis is carried out through a series of interconnected scripts, each performing a distinct step in the GWAS pipeline. These include:</p>
+<ul>
+<li><p>Pre-processing metadata</p></li>
+<li><p>Running Pyseer with fixed effects and phylogeny correction</p></li>
+<li><p>Annotating significant unitigs, by mapping them to a reference genome</p></li>
+<li><p>Generating Manhattan plots to visualize significant associations</p></li>
+</ul>
+<section id="data-sources" class="level3">
+<h3 class="anchored" data-anchor-id="data-sources">Data Sources</h3>
+<p><strong>- Metadata:</strong> The file <code>gwas-strain-table-filtered.tsv</code> contains cleaned metadata for each N. gonorrhoeae strain. It includes the log-transformed minimum inhibitory concentration (MIC) values for azithromycin (AZI_LOG), ceftriaxone (CRO_LOG), and ciprofloxacin (CIP_LOG), the strain identifier (GWAS_ID), and country of origin.</p>
+<p><strong>- Unitigs:</strong> The <code>unitigs.txt</code> file lists presence/absence of unitigs in sparse format.</p>
+<p><strong>- Phylogenetic Similarity Matrix:</strong> The <code>combined_phylogeny_similarity.tsv</code> file provides a pairwise similarity matrix based on phylogenetic distance between strains, necessary for population structure correction. This was generated using <code>phylogeny_distance.py</code> from the <code>Pyseer</code> toolkit.</p>
+<p>All files are pre-processed and aligned so that strain IDs match across metadata, phenotype, and matrix inputs.</p>
+<hr>
 </section>
-<section id="render-locally-and-publish-to-gh-pages-branch" class="level2">
-<h2 class="anchored" data-anchor-id="render-locally-and-publish-to-gh-pages-branch">Render locally and publish to gh-pages branch</h2>
-<p>To render locally and push up to the <code>gh-pages</code> branch, open a terminal window and then <code>cd</code> to the directory with the Quarto project. Type this in the terminal:</p>
-<pre><code>quarto render gh-pages</code></pre>
+<section id="step-1-preprocessing-metadata-and-covariates" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-preprocessing-metadata-and-covariates">Step 1: Preprocessing Metadata and Covariates</h2>
+<p>Before running the GWAS, we need to format the input data so that Pyseer can correctly associate phenotype values (azithromycin susceptibility) with each strain and control for confounding by geographic origin.</p>
+<p>The following script (<code>prepare_pyseer_inputs.py</code>) should be executed as a standalone Python script. It processes raw metadata and outputs two essential files required by <code>Pyseer</code>: a phenotype file and a covariate matrix with one-hot encoded country indicators.</p>
+<div id="278a46b8" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare_pyseer_inputs.py</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load metadata</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>meta_path <span class="op">=</span> <span class="st">"data/gwas-strain-table-filtered.tsv"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>metadata <span class="op">=</span> pd.read_csv(meta_path, sep<span class="op">=</span><span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep relevant fields and drop missing values</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>metadata <span class="op">=</span> metadata[[<span class="st">"GWAS_ID"</span>, <span class="st">"AZI_LOG"</span>, <span class="st">"Country"</span>]].dropna()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Save phenotype file</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>metadata[[<span class="st">"GWAS_ID"</span>, <span class="st">"AZI_LOG"</span>]].to_csv(<span class="st">"data/phenotypes.tsv"</span>, sep<span class="op">=</span><span class="st">"</span><span class="ch">\t</span><span class="st">"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># One-hot encode Country for fixed effects</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>covariates <span class="op">=</span> pd.get_dummies(metadata[[<span class="st">"GWAS_ID"</span>, <span class="st">"Country"</span>]], columns<span class="op">=</span>[<span class="st">"Country"</span>])</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>covariates.to_csv(<span class="st">"data/covariates.tsv"</span>, sep<span class="op">=</span><span class="st">"</span><span class="ch">\t</span><span class="st">"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This script creates:</p>
+<ul>
+<li><p><code>data/phenotypes.tsv</code>: Contains strain IDs and azithromycin MICs</p></li>
+<li><p><code>data/covariates.tsv</code>: Fixed-effect dummy variables for country of origin</p></li>
+</ul>
+<hr>
+</section>
+<section id="step-2-running-pyseer-gwas" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-running-pyseer-gwas">Step 2: Running Pyseer GWAS</h2>
+<p>Once the input files are prepared, we run the core GWAS using <code>Pyseer.</code> This step tests the association between unitig presence and azithromycin susceptibility, while accounting for both population structure and fixed effects.</p>
+<p>This is a shell script (<code>run_pyseer.sh</code>) and should be run from the command line (e.g.&nbsp;in our terminal or via SLURM job scheduler). Ensure all input paths are correct before executing.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># run_pyseer.sh</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pyseer</span> <span class="dt">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--phenotypes</span> data/phenotypes.tsv <span class="dt">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--kmers</span> data/unitigs.txt <span class="dt">\</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--uncompressed</span> <span class="dt">\</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--distances</span> data/combined_phylogeny_similarity.tsv <span class="dt">\</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--covariates</span> data/covariates.tsv <span class="dt">\</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cpu</span> 4 <span class="dt">\</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;</span> results/pyseer_results.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will produce the raw GWAS output in <code>results/pyseer_results.txt</code>.</p>
+<hr>
+</section>
+<section id="step-4-unitigs-annotation" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-unitigs-annotation">Step 4: Unitigs Annotation</h2>
+<p>As part of this replication, we did not perform de novo annotation of the unitigs produced by our Pyseer GWAS. Instead, to facilitate plotting and comparison with the original study, we used pre-annotated output files from the original authors—specifically, the <code>pyseer-AZI-cond-country.results.mapped-WHO_F.plot</code> file—available in their published results directory.</p>
+<p>In the full <code>Pyseer</code> pipeline, unitig annotation is a key downstream step that maps statistically significant unitigs to a reference genome (e.g., Neisseria gonorrhoeae WHO_F) and provides them with gene-based or functional context. This step typically involves:</p>
+<ul>
+<li><p>Sorting the <code>.results.txt</code> output by p-value</p></li>
+<li><p>Mapping unitigs to a reference FASTA genome using <code>phandango_mapper</code></p></li>
+<li><p>Identifying significant hits using a Bonferroni threshold (calculated from the number of tested patterns)</p></li>
+<li><p>Annotating those hits with <code>annotate_hits_pyseer</code>, which uses a formatted reference genome description (e.g., reference_WHO_F.txt)</p></li>
+<li><p>Producing GFF-aligned files for further interpretation and visualization</p></li>
+</ul>
+<p>To streamline this replication, we borrowed this component from the original study’s annotation pipeline, prioritizing the replication of the GWAS logic and structure. Future work could integrate this annotation pipeline. While we did not reimplement every detail of the original pipeline, portions of the annotation and plotting stages were adapted to reflect the study’s approach.</p>
+</section>
+<section id="step-5-plotting-manhattan-plot" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-plotting-manhattan-plot">Step 5: Plotting Manhattan Plot</h2>
+<p>To visualize the GWAS results, we can generate a Manhattan plot, which highlights genomic regions where unitigs show statistically significant associations with azithromycin susceptibility.</p>
+<p>The following script (<code>plots.py</code>) is a standalone Python script. It visualizes significant associations using a Manhattan plot and highlights known resistance loci. Run this in an environment with <code>matplotlib</code>, <code>numpy</code>, and <code>pandas</code> installed.</p>
+<div id="885fa03a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plots.py</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Rectangle</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load mapped and filtered GWAS results</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>azi <span class="op">=</span> pd.read_csv(<span class="st">'results/pyseer-AZI-cond-country.results.mapped-WHO_F.plot'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>azi <span class="op">=</span> azi.sort_values(<span class="st">'log10(p)'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>azi[<span class="st">'Pos'</span>] <span class="op">=</span> azi[<span class="st">'minLOG10(P)'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">int</span>(x.split(<span class="st">'..'</span>)[<span class="dv">0</span>]))</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>azi <span class="op">=</span> azi[azi[<span class="st">'af'</span>] <span class="op">&lt;=</span> <span class="fl">0.5</span>]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">18</span>,<span class="dv">8</span>), dpi<span class="op">=</span><span class="dv">300</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="st">'Pos'</span>, <span class="st">'log10(p)'</span>, data<span class="op">=</span>azi[azi[<span class="st">'beta'</span>] <span class="op">&gt;</span> <span class="dv">0</span>].head(<span class="dv">1_00_000</span>), s<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.9</span>, color<span class="op">=</span><span class="st">'#f28d9e'</span>, label<span class="op">=</span><span class="st">'Beta &gt; 0'</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="st">'Pos'</span>, <span class="st">'log10(p)'</span>, data<span class="op">=</span>azi[azi[<span class="st">'beta'</span>] <span class="op">&lt;</span> <span class="dv">0</span>].head(<span class="dv">1_00_000</span>), s<span class="op">=</span><span class="dv">70</span>, marker<span class="op">=</span><span class="st">'x'</span>, color<span class="op">=</span><span class="st">'#f28d9e'</span>, label<span class="op">=</span><span class="st">'Beta &lt; 0'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Annotate known resistance genes</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>plt.annotate(<span class="vs">r'23S rRNA'</span>, (<span class="fl">1.2e6</span>, <span class="dv">213</span>), color<span class="op">=</span><span class="st">'#f7768d'</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>plt.annotate(<span class="vs">r'</span><span class="dv">$\m</span><span class="vs">athit{penA}</span><span class="dv">$</span><span class="vs">'</span>, (<span class="fl">1.63e6</span>, <span class="dv">50</span>), color<span class="op">=</span><span class="st">'#17a0b7'</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>plt.annotate(<span class="vs">r'</span><span class="dv">$\m</span><span class="vs">athit{gyrA}</span><span class="dv">$</span><span class="vs">'</span>, (<span class="fl">6.13e5</span>, <span class="dv">81</span>), color<span class="op">=</span><span class="st">'#6918ba'</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>plt.annotate(<span class="vs">r'</span><span class="dv">$\m</span><span class="vs">athit{mtrC}</span><span class="dv">$</span><span class="vs">'</span>, (<span class="fl">1.42e6</span>, <span class="dv">124</span>), color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>plt.gca().add_patch(Rectangle((<span class="fl">1.4e6</span>, <span class="dv">0</span>), <span class="fl">4.9e4</span>, <span class="dv">250</span>, color<span class="op">=</span><span class="st">'#7d7d7d'</span>, alpha<span class="op">=</span><span class="fl">0.075</span>))</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Axes and legend</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Genomic Coordinates (Mbp)'</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r'Significance </span><span class="kw">(</span><span class="dv">$</span><span class="vs">-</span><span class="er">\</span><span class="vs">log_</span><span class="op">{10}</span><span class="pp">[p]</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">2292467</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">250</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Manhattan Plot of Azithromycin GWAS Results'</span>, fontsize<span class="op">=</span><span class="dv">24</span>, pad<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'results/combined-manhattan-plot.png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>, dpi<span class="op">=</span><span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>See output below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../combined-manhattan-plot.png" class="img-fluid figure-img"></p>
+<figcaption>Manhattan plot of azithromycin GWAS results</figcaption>
+</figure>
+</div>
+<hr>
+<p>This replication process involved adapting the Pyseer GWAS framework to test <strong>azithromycin susceptibility</strong> in <strong>Neisseria gonorrhoeae</strong>. By reproducing key components of the original study and customizing the phenotype and covariate inputs, we gained experience with bacterial GWAS using unitigs and developed proficiency with tools such as the <code>Pyseer</code> package. The resulting visualizations highlight significant associations, including known resistance loci such as <code>mtrC.</code></p>
 
 
 </section>

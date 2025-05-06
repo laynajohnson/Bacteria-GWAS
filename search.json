@@ -80,29 +80,49 @@
   {
     "objectID": "content/code.html",
     "href": "content/code.html",
-    "title": "Rendering with Code",
+    "title": "Replication",
     "section": "",
-    "text": "You can have code (R, Python or Julia) in your qmd file. You will need to have these installed on your local computer, but presumably you do already if you are adding code to your qmd files.\nx &lt;- c(5, 15, 25, 35, 45, 55)\ny &lt;- c(5, 20, 14, 32, 22, 38)\nlm(x ~ y)\n\n\nCall:\nlm(formula = x ~ y)\n\nCoefficients:\n(Intercept)            y  \n      1.056        1.326",
+    "text": "This analysis replicates a portion of the genomic association approach used in the paper “Adaptation to the cervical environment is associated with increased antibiotic susceptibility in Neisseria gonorrhoeae”. While the original study examines susceptibility to azithromycin, ceftriaxone, and ciprofloxacin, we apply the same GWAS methodology to focus only on susceptibility to azithromycin.\nThis analysis is carried out through a series of interconnected scripts, each performing a distinct step in the GWAS pipeline. These include:",
     "crumbs": [
       "Replication"
     ]
   },
   {
-    "objectID": "content/code.html#modify-the-github-action",
-    "href": "content/code.html#modify-the-github-action",
-    "title": "Rendering with Code",
-    "section": "Modify the GitHub Action",
-    "text": "Modify the GitHub Action\nYou will need to change the GitHub Action in .github/workflows to install these and any needed packages in order for GitHub to be able to render your webpage. The GitHub Action install R since I used that in code.qmd. If you use Python or Julia instead, then you will need to update the GitHub Action to install those.\nIf getting the GitHub Action to work is too much hassle (and that definitely happens), you can alway render locally and publish to the gh-pages branch. If you do this, make sure to delete or rename the GitHub Action to something like\nrender-and-publish.old_yml\nso GitHub does not keep trying to run it. Nothing bad will happen if you don’t do this, but if you are not using the action (because it keeps failing), then you don’t need GitHub to run it.",
+    "objectID": "content/code.html#step-1-preprocessing-metadata-and-covariates",
+    "href": "content/code.html#step-1-preprocessing-metadata-and-covariates",
+    "title": "Replication",
+    "section": "Step 1: Preprocessing Metadata and Covariates",
+    "text": "Step 1: Preprocessing Metadata and Covariates\nBefore running the GWAS, we need to format the input data so that Pyseer can correctly associate phenotype values (azithromycin susceptibility) with each strain and control for confounding by geographic origin.\nThe following script (prepare_pyseer_inputs.py) should be executed as a standalone Python script. It processes raw metadata and outputs two essential files required by Pyseer: a phenotype file and a covariate matrix with one-hot encoded country indicators.\n\n# prepare_pyseer_inputs.py\nimport pandas as pd\n\n# Load metadata\nmeta_path = \"data/gwas-strain-table-filtered.tsv\"\nmetadata = pd.read_csv(meta_path, sep=\"\\t\")\n\n# Keep relevant fields and drop missing values\nmetadata = metadata[[\"GWAS_ID\", \"AZI_LOG\", \"Country\"]].dropna()\n\n# Save phenotype file\nmetadata[[\"GWAS_ID\", \"AZI_LOG\"]].to_csv(\"data/phenotypes.tsv\", sep=\"\\t\", index=False)\n\n# One-hot encode Country for fixed effects\ncovariates = pd.get_dummies(metadata[[\"GWAS_ID\", \"Country\"]], columns=[\"Country\"])\ncovariates.to_csv(\"data/covariates.tsv\", sep=\"\\t\", index=False)\n\nThis script creates:\n\ndata/phenotypes.tsv: Contains strain IDs and azithromycin MICs\ndata/covariates.tsv: Fixed-effect dummy variables for country of origin",
     "crumbs": [
       "Replication"
     ]
   },
   {
-    "objectID": "content/code.html#render-locally-and-publish-to-gh-pages-branch",
-    "href": "content/code.html#render-locally-and-publish-to-gh-pages-branch",
-    "title": "Rendering with Code",
-    "section": "Render locally and publish to gh-pages branch",
-    "text": "Render locally and publish to gh-pages branch\nTo render locally and push up to the gh-pages branch, open a terminal window and then cd to the directory with the Quarto project. Type this in the terminal:\nquarto render gh-pages",
+    "objectID": "content/code.html#step-2-running-pyseer-gwas",
+    "href": "content/code.html#step-2-running-pyseer-gwas",
+    "title": "Replication",
+    "section": "Step 2: Running Pyseer GWAS",
+    "text": "Step 2: Running Pyseer GWAS\nOnce the input files are prepared, we run the core GWAS using Pyseer. This step tests the association between unitig presence and azithromycin susceptibility, while accounting for both population structure and fixed effects.\nThis is a shell script (run_pyseer.sh) and should be run from the command line (e.g. in our terminal or via SLURM job scheduler). Ensure all input paths are correct before executing.\n#| eval: false\n# run_pyseer.sh\npyseer \\\n  --phenotypes data/phenotypes.tsv \\\n  --kmers data/unitigs.txt \\\n  --uncompressed \\\n  --distances data/combined_phylogeny_similarity.tsv \\\n  --covariates data/covariates.tsv \\\n  --cpu 4 \\\n  &gt; results/pyseer_results.txt\nThis will produce the raw GWAS output in results/pyseer_results.txt.",
+    "crumbs": [
+      "Replication"
+    ]
+  },
+  {
+    "objectID": "content/code.html#step-4-unitigs-annotation",
+    "href": "content/code.html#step-4-unitigs-annotation",
+    "title": "Replication",
+    "section": "Step 4: Unitigs Annotation",
+    "text": "Step 4: Unitigs Annotation\nAs part of this replication, we did not perform de novo annotation of the unitigs produced by our Pyseer GWAS. Instead, to facilitate plotting and comparison with the original study, we used pre-annotated output files from the original authors—specifically, the pyseer-AZI-cond-country.results.mapped-WHO_F.plot file—available in their published results directory.\nIn the full Pyseer pipeline, unitig annotation is a key downstream step that maps statistically significant unitigs to a reference genome (e.g., Neisseria gonorrhoeae WHO_F) and provides them with gene-based or functional context. This step typically involves:\n\nSorting the .results.txt output by p-value\nMapping unitigs to a reference FASTA genome using phandango_mapper\nIdentifying significant hits using a Bonferroni threshold (calculated from the number of tested patterns)\nAnnotating those hits with annotate_hits_pyseer, which uses a formatted reference genome description (e.g., reference_WHO_F.txt)\nProducing GFF-aligned files for further interpretation and visualization\n\nTo streamline this replication, we borrowed this component from the original study’s annotation pipeline, prioritizing the replication of the GWAS logic and structure. Future work could integrate this annotation pipeline. While we did not reimplement every detail of the original pipeline, portions of the annotation and plotting stages were adapted to reflect the study’s approach.",
+    "crumbs": [
+      "Replication"
+    ]
+  },
+  {
+    "objectID": "content/code.html#step-5-plotting-manhattan-plot",
+    "href": "content/code.html#step-5-plotting-manhattan-plot",
+    "title": "Replication",
+    "section": "Step 5: Plotting Manhattan Plot",
+    "text": "Step 5: Plotting Manhattan Plot\nTo visualize the GWAS results, we can generate a Manhattan plot, which highlights genomic regions where unitigs show statistically significant associations with azithromycin susceptibility.\nThe following script (plots.py) is a standalone Python script. It visualizes significant associations using a Manhattan plot and highlights known resistance loci. Run this in an environment with matplotlib, numpy, and pandas installed.\n\n# plots.py\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom matplotlib.patches import Rectangle\n\n# Load mapped and filtered GWAS results\nazi = pd.read_csv('results/pyseer-AZI-cond-country.results.mapped-WHO_F.plot', sep='\\t')\nazi = azi.sort_values('log10(p)', ascending=False)\nazi['Pos'] = azi['minLOG10(P)'].apply(lambda x: int(x.split('..')[0]))\nazi = azi[azi['af'] &lt;= 0.5]\n\n# Setup\nplt.figure(figsize=(18,8), dpi=300)\nplt.scatter('Pos', 'log10(p)', data=azi[azi['beta'] &gt; 0].head(1_00_000), s=50, alpha=0.9, color='#f28d9e', label='Beta &gt; 0')\nplt.scatter('Pos', 'log10(p)', data=azi[azi['beta'] &lt; 0].head(1_00_000), s=70, marker='x', color='#f28d9e', label='Beta &lt; 0', linewidth=2)\n\n# Annotate known resistance genes\nplt.annotate(r'23S rRNA', (1.2e6, 213), color='#f7768d')\nplt.annotate(r'$\\mathit{penA}$', (1.63e6, 50), color='#17a0b7')\nplt.annotate(r'$\\mathit{gyrA}$', (6.13e5, 81), color='#6918ba')\nplt.annotate(r'$\\mathit{mtrC}$', (1.42e6, 124), color='black')\nplt.gca().add_patch(Rectangle((1.4e6, 0), 4.9e4, 250, color='#7d7d7d', alpha=0.075))\n\n# Axes and legend\nplt.xlabel('Genomic Coordinates (Mbp)')\nplt.ylabel(r'Significance ($-\\log_{10}[p]$)')\nplt.legend()\nplt.xlim(0, 2292467)\nplt.ylim(0, 250)\nplt.title('Manhattan Plot of Azithromycin GWAS Results', fontsize=24, pad=20)\nplt.savefig('results/combined-manhattan-plot.png', bbox_inches='tight', dpi=600)\n\nSee output below:\n\n\n\nManhattan plot of azithromycin GWAS results\n\n\n\nThis replication process involved adapting the Pyseer GWAS framework to test azithromycin susceptibility in Neisseria gonorrhoeae. By reproducing key components of the original study and customizing the phenotype and covariate inputs, we gained experience with bacterial GWAS using unitigs and developed proficiency with tools such as the Pyseer package. The resulting visualizations highlight significant associations, including known resistance loci such as mtrC.",
     "crumbs": [
       "Replication"
     ]
