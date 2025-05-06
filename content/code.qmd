@@ -153,3 +153,4 @@ See output below:
 ------------------------------------------------------------------------
 
 This replication process involved adapting the Pyseer GWAS framework to test **azithromycin susceptibility** in **Neisseria gonorrhoeae**. By reproducing key components of the original study and customizing the phenotype and covariate inputs, we gained experience with bacterial GWAS using unitigs and developed proficiency with tools such as the `Pyseer` package. The resulting visualizations highlight significant associations, including known resistance loci such as `mtrC.`
+
