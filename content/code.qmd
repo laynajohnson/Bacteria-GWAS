@@ -131,8 +131,6 @@ plt.scatter('Pos', 'log10(p)', data=azi[azi['beta'] < 0].head(1_00_000), s=70, m
 
 # Annotate known resistance genes
 plt.annotate(r'23S rRNA', (1.2e6, 213), color='#f7768d')
-plt.annotate(r'$\mathit{penA}$', (1.63e6, 50), color='#17a0b7')
-plt.annotate(r'$\mathit{gyrA}$', (6.13e5, 81), color='#6918ba')
 plt.annotate(r'$\mathit{mtrC}$', (1.42e6, 124), color='black')
 plt.gca().add_patch(Rectangle((1.4e6, 0), 4.9e4, 250, color='#7d7d7d', alpha=0.075))
 
